@@ -1,21 +1,20 @@
 var mongoose = require('mongoose');
-var path = require('path');
-
-
+// var path = require('path');
+//
 mongoose.connect('mongodb://localhost/test');
-var db = mongoose.connection;
+exports.connection = mongoose.connection;
 
-db.on('error', console.error);
-db.once('open',function(){
-  var userSchema = mongoose.Schema({
+
+
+  exports.userSchema = mongoose.Schema({
     username: String,
     password: String
   });
 
-  var linkShema = mongoose.Schema({
+  exports.linkSchema = mongoose.Schema({
     url: String,
     base_url: String,
-    code: Number,
+    // code: Number,
     title: String,
     visits: Number
 
@@ -23,17 +22,11 @@ db.once('open',function(){
 
 
 
-  var User = mongoose.model('User',userSchema);
-  var Link = mongoose.model('Link',linkSchema);
+//module.exports = db;
+
+
 
 // var Bookshelf = require('bookshelf');
-
-});
-
-
-
-
-
 // var db = Bookshelf.initialize({
 //   client: 'sqlite3',
 //   connection: {
@@ -75,4 +68,3 @@ db.once('open',function(){
 //   }
 // });
 
-// module.exports = db;
