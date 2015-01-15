@@ -1,4 +1,3 @@
-var db = require('../config');
 var mongoose = require('mongoose');
 var bcrypt = require('bcrypt-nodejs');
 
@@ -11,7 +10,7 @@ var linkSchema = mongoose.Schema({
   visits: Number
 });
 
-var Link = mongoose.model('Link', db.linkSchema);
+var Link = mongoose.model('Link', linkSchema);
 
 
 linkSchema.pre('save', function(next){
