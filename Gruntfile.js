@@ -115,7 +115,8 @@ module.exports = function(grunt) {
     'cssmin',
     'concat',
     'uglify',
-    'jshint'
+    'jshint',
+    'test'
   ]);
 
   grunt.registerTask('upload', function(n) {
@@ -126,8 +127,8 @@ module.exports = function(grunt) {
     }
   });
 
-  grunt.registerTask('deploy',
-  [
+  grunt.registerTask('deploy', [
+    'build'
     // add your deploy tasks here
   ]);
 
